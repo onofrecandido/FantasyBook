@@ -8,14 +8,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const start = async () => {
     const mindarThree = new window.MINDAR.IMAGE.MindARThree({
       container: document.body,
-      imageTargetSrc: "/targets/book7.mind",
+      imageTargetSrc:
+        "https://onofrecandido.github.io/FantasyBook/dist/targets/book7.mind",
     });
     const { renderer, scene, camera } = mindarThree;
 
     const light = new THREE.HemisphereLight("#ffffff", "#bbbbff", 1);
     scene.add(light);
 
-    const book = await loadGLTF("/models/book/scene.gltf");
+    const book = await loadGLTF(
+      "https://onofrecandido.github.io/FantasyBook/dist/models/book/scene.gltf"
+    );
     const mixer = new THREE.AnimationMixer(book.scene);
     const clips = book.animations;
     console.log(book.animations);
