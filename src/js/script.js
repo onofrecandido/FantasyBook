@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     action.play();
     book.scene.scale.set(0.01, 0.01, 0.01);
-    book.scene.position.set(0, 0, 0);
+    book.scene.position.set(0, 0, 0.3);
 
     book.scene.rotation.x = Math.PI * 0.5;
     book.scene.rotation.y = Math.PI * 0.5;
@@ -37,10 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
     anchor.group.add(book.scene);
 
     const clock = new THREE.Clock();
-
     await mindarThree.start();
     renderer.setAnimationLoop(() => {
-      const delta = clock.getDelta();
+      const delta = clock.getElapsedTime();
       mixer.update(delta);
       renderer.render(scene, camera);
     });
